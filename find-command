@@ -1,0 +1,28 @@
+
+# Simple use 
+find /home/user -name file.txt 
+
+# find a folder or a file type in user's home directory
+
+find /home/user -name file.txt -type f
+find /home/user -name testdir -type d
+
+# find all files that have been modified 3 days ago 
+
+find / -mtime -3 
+
+# find all the files ownd by a user
+
+find / -user jeff
+
+# execute a command against my returned result 
+
+find / -user jeff -type f -exec cat {} \;
+
+# copy everything ownd by jeff to mary's home directory
+
+find / -user jeff -type f -exec cat {} /home/mary \;
+
+# remove everything ownd by jeff 
+
+find / -user jeff -type f -exec rm {} \;
