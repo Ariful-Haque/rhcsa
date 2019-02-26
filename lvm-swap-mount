@@ -1,0 +1,54 @@
+
+# Add new partitions, logical volumes, and swap non-destructively 
+
+# check for partitions on /dev directory 
+
+ls /dev 
+
+# check for free physical memory and swap 
+
+$ free -mh 
+
+# use gdisk or fdisk utility to create a partition  
+
+# now create pv vg and lv 
+
+$ pvcreate /dev/xdvf1 
+$ pvdislpay 
+
+$ vgcreate battlestar(vgname) /dev/xvdf1 
+$ vgdisplay 
+
+$ lvcreate -n(lvname) swap -L(size) 2G battlestar(vgname) 
+$ lvdisplay 
+
+# now format it with swap signature 
+
+$mkswap /dev/battlestar/swap 
+
+# enable swap to verify that it works, its non persistent  
+$ swapon /dev/battlestar/swap
+
+$ free -mh 
+# we can now see the change 
+
+# to turnoff swap 
+$ swapoff /dev/battlestar/swap
+$ free -h 
+
+# To make it parsisten edit /etc/fstab file 
+/dev/battlestar/swap swap     swap     0      0
+#[location]           [type] [options][dump][run fsck]
+
+# now enable swap 
+$ swapon -a 
+$ free -mh 
+
+
+
+  
+
+
+
+
+

@@ -1,0 +1,31 @@
+
+# Add a regular swap device 
+
+# use fdisk 
+# inside fdisk type t for partition type, its 82 for linux swap  
+
+# now format it to have swap signature 
+$ mkswap xvdg1 
+
+# enable swap from the command line 
+$ swapon /dev/xvdg1 
+
+# to see UUID of all the block devices 
+$ blkid 
+
+# edit /etc/fstab file to make the change persistent 
+
+UUID=     swap       swap        0     0 
+          [file type] [options] [dump] [fsck]
+
+# now enable all swap partitions 
+$ swapon -a 
+$ free -mh 
+
+# to see which partitions are made up of swap 
+
+$ swapon -s (status of swap partitions)
+$ cat /proc/swaps will also show the exact results 
+
+
+
