@@ -1,0 +1,19 @@
+
+# location
+/etc/yum.repos.d
+
+# commands to list the repositories 
+
+$ yum repolist 
+$ yum repolist all 
+
+# to add a repo
+
+yum-config-manager --add-repo=url
+
+# To enable or disable a repo 
+edit the repo file 'enable=0 for disable and 1 for enable 
+
+# or it can be done with the following command 
+$ yum-config-manager --disable(or enable) REPO ID #id  can be found with $yum repolist all command
+ 
