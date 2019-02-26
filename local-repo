@@ -1,0 +1,28 @@
+
+# How to create a local repo
+
+- Download the redhat iso image with all the repository files and packages 
+- create a directory 
+- mount it on that directory 
+ $ mount -o loop rehat.iso directory 
+
+- check if it is mounted 
+ $ df -h 
+
+- Now go to /etc/yum.repos.d directory and create a repository 
+# you can create it with yum-config-manager command or manually
+
+# To create manually
+- create a file local-repo.repo
+# contents of the file 
+[local-repo]
+name=Red hat linux local repo
+baseurl=file:///repos/local
+enable=1
+gpgcheck=0
+
+# now run this command to check if the repo is created
+$ yum repolist
+
+
+ 
