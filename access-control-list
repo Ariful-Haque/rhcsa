@@ -1,0 +1,6 @@
+
+# Access Control List
+
+- not all file system support acl
+- in a redhat machine by default ext4 and xfs FS support ACL 
+- 

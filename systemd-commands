@@ -1,0 +1,15 @@
+
+# To see all the different types of unit config files 
+
+$ systemctl -t help 
+
+# Location for unit configuration files 
+/usr/lib/systemd/system
+
+# target is a grouping of unit configuration files 
+# to list all the dependencies of a certain target 
+$ systemctl list-dependencies multi-user.target 
+
+$ systemctl get-default
+
+

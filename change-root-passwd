@@ -1,0 +1,24 @@
+
+# How to change root password 
+
+- reboot the system
+- when boot menu opens up press any key that will interrupt the default count down 
+to auto select
+- Highlight the kernel you want to boot into
+- press e key in order to edit grup cofiguration 
+- browes down to 'linux16...' line, go to the end of the command and append 
+ rd.break. It will let you enter initramfs debug shell. To continue press ctl+x 
+- Now, remount /sysroot directory as rw.
+ $ mount -oremount,rw /sysroot 
+
+ $ chroot /sysroot
+
+- Now shell process is acting as root directory. 
+- Now use passwd command to change root password. 
+
+- Now for SELinux relevel all the files which include /etc/passwd file.
+- In order it to relevel, one hidden file has to exist. 
+
+ $ touch / .autorelevel 
+now exit from change root environment, and also exit from initramfs shell. 
+It will reboot the system and you can now su into root with new password.  

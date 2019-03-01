@@ -1,0 +1,49 @@
+
+# create and troublshoot vfat, ext4 and xfs file system
+
+- create a partition with fdisk or gdisk 
+
+$ mkfs.vfat /dev/xvdf1
+
+
+ $ mkdir /mnt/mymount
+ $ mount /dev/xvdf1 /mnt/mymount
+
+# to make it persistent edit /etc/fstab file 
+/dev/xvdf1 /mnt/mymount     vfat         defaults  1            2 
+[partition] [mount point] [file system]  [options] [dump field] [fsck 2 for after root directory]
+
+# to unmount a partition from the command line
+ $ umount /mnt/device
+
+# to check a filesystem use fsck tool 
+# fsck can not be used to a mounted device 
+# first, unmount it with umount command and then run fsck 
+
+# example 
+  $ fsck.vfat /dev/xvdf1
+  $ fsck /dev/xvdg1 (for ext4)
+
+# To get information about  ext4 file system 
+ $ dumpe2fs /dev/xvdf1 
+
+# To get information about a xfs file system 
+ $ xfs_info /dev/xvdf1
+
+# To level ext4 device 
+ $ tune2fs -L levelName /dev/xvdf1 
+
+# To level xfs device am
+ $ xfs_admin -L leveName deviceLocation
+
+# To repair an xfs file system 
+ $ xfs_repair /dev/xvdf1
+
+
+
+
+
+
+ 
+
+
