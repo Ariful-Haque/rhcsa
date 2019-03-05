@@ -1,0 +1,4 @@
+
+# renice all the processes of a running program
+
+$ renice -n 0 $(pgrep httpd) 

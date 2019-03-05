@@ -1,0 +1,18 @@
+
+# Create a background job 
+$ (while ture; do echo -n "My program" >> ~/output.file; sleep 1; done) & 
+
+# check background jobs 
+$ jobs
+
+# Now, stop the job
+
+$ kill -SIGSTOP %1 (Here 1 is job number)
+
+# Now I want to continue again 
+
+$ kill -SIGCONT %1 
+
+# Terminate the job
+
+$ kill %1 (default flag is 15 SIGTERM)   

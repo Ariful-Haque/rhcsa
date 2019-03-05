@@ -1,0 +1,20 @@
+
+messages - system log
+secure - ssh attempts into the system 
+
+# To view all the messages that are being appended
+
+ $ tail -f /var/log/messages 
+
+# journald logs all events of our system
+# reboot will remove the contents of journald 
+# /etc/systemd/journald.conf (journald configuration file) 
+
+$ journalctl -f 
+
+$ journalctl -n (shows last 10 lines) 
+$ systemd-analyze blame (how log it takes to boot differnt processes, for troubleshoot)
+
+/etc/rsyslog.conf (log configuration file)
+
+ 

@@ -1,0 +1,27 @@
+
+$ ps aux 
+$ pgrep gnome -l 
+
+# To list all the processes that are runing under a user
+
+$ pgrep -u user -l 
+
+# To list a specific process, for example vim 
+$ pgrep -u user -l vim 
+
+# to view all the processes that are not owned by root user 
+$ pgrep -v -u root -l 
+
+# To kill a process, process name can be used with pkill  
+
+$ pkill httpd 
+
+# To list all the kill signal 
+$ kill -l
+$ pkill -9 httpd (force killing)
+$ pkill -15 httpd (graceful killing and its default with pkill)
+
+$ w (This will show all the users that are logged in to the system) 
+$ pkill -t pts/1 (kill all the processes that are initiated from that terminal)  
+
+

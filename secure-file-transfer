@@ -1,0 +1,16 @@
+
+# scp and sftp both go over port 22 
+
+$ scp myfile.txt user@50.50.20.1:~/
+
+$ sftp user@50.50.20.1
+
+sftp> get file.txt (it will download to local machine) 
+sftp> quit 
+
+sftp> put localfile.txt (will upload from local machine to remote machine)
+
+sftp> ls (will show the newly uploaded file) 
+
+
+
