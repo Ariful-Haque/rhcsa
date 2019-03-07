@@ -1,0 +1,43 @@
+
+# to see network devices 
+ls /sys/class/net
+
+$ nmcli dev status 
+
+$ nmcli con show
+
+# Connection cofigurations are located 
+/etc/sysconfig/network-scripts 
+
+# I can create multiple connections for a single device 
+# To create a connection
+
+$ nmcli con add con-name "mycon" autoconnect yes type ethernet ifname eth1
+# as no ip address is provided, ip will be configured by dhcp 
+
+$ nmcli con show 
+$ nmcli con show --active 
+
+# to check ip table 
+$ ip route  
+
+# To create static connection
+
+$ nmcli con add con-name "my-static" type ethernet ifname eth1 ip4 192.168.1.20 gw4 192.168.1.1
+
+$ nmcli con up "my-static" 
+$ nmcli con down "my-static" 
+
+# to modify a connection 
+
+$ nmcli con mod "mycon" (Tab show all the options)
+
+$ nmcli con mod "mycon" connction.autoconnect yes 
+
+now we can cat out the configuration file in /etc/sysconfig/network-scripts directory to see changes
+
+# To delete a connection 
+
+$ nmcli con del "mycon"
+
+

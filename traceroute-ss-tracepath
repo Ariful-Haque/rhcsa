@@ -1,0 +1,22 @@
+
+# install traceroute 
+traceroute google.com
+tracepath google.com 
+# ss command is used to check network sockets 
+
+ $ ss -at (shows all tcp sockets)
+ $ ss -au (show all udp sockets) 
+
+# If I want to see port number 
+  
+  $ ss -aun (udp port numbers)
+  $ ss -atn (tcp port numbers)
+
+# To check if my device is sending and recieving packets 
+
+ $ ip -s link show eth0
+
+RX-recieving 
+TX-transmiting 
+
+
