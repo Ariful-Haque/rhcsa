@@ -7,6 +7,7 @@ $ systemctl -t help
 /usr/lib/systemd/system
 
 # target is a grouping of unit configuration files 
+
 # To View all active targets on the system.
 $ systemctl list-units --type=target
  
@@ -21,4 +22,5 @@ $ systemctl list-dependencies multi-user.target
 
 $ systemctl get-default
 
-
+# To check all enabled and disabled services 
+$ systemctl list-unit-files 

@@ -1,0 +1,14 @@
+
+
+ # To list all the boolean values 
+ $ getsebool -a (current session)
+ 
+ $ semanage boolean -l (default value) 
+
+# To enable 
+ $ setsebool httpd_enable_homedirs on (non persistent) 
+ $ setsebool -P httpd_enable_homedirs on (persistent) 
+
+ $ semanage boolean -l | grep httpd_enable_homedirs 
+
+

@@ -1,0 +1,41 @@
+
+
+$ id
+$ id jeff
+# id with 1-200 system user
+# 201 - 999 system users, but don't own files on the system.
+# to check groups of a user
+ $ groups cloud_user
+ $ cat /etc/group
+
+# user configuration file /etc/login.defs
+
+# another directory for defautl configuraiton of user creation
+ /etc/default/useradd
+
+# /etc/shadow password file
+
+$ usermod --help
+
+# To lock a user
+$ usermod -L jeff
+# To undo this
+$ usermod -U jeff
+$ usermod -G wheel jeff
+$ groups jeff
+
+
+# To add a user
+$ useradd --help
+
+# To delete a user
+$ userdel jeff
+# To delete home directory
+$ userdel -r jeff
+
+# Now check /etc/passwd and /etc/shadow file if the removed user has any entry there.
+
+
+
+
+

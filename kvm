@@ -1,0 +1,24 @@
+
+
+# required packages for virtualization 
+
+ $ sudo yum install virt-manager qemu-kvm qemu-img
+
+ $ sudo yum install libvirt libvirt-python python-virtinst libvirt-client 
+
+
+# now enable libvirtd 
+ $ sudo systemctl enable libvirtd 
+ $ sudo systemctl start libvirtd  
+
+$ virsh # will start virtualization interactive terminal 
+
+$ list --all 
+$ autostart myvm (vm name) 
+
+# make sure that network services start at boot time
+$ nmcli con mod "ens3" connection.autoconnect yes
+
+/etc/sysconfig/network-scripts 
+
+$ nmcli con up ens3

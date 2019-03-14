@@ -1,0 +1,35 @@
+
+# To check selinux context 
+ $ ls -Z 
+
+# To see all the context 
+ $ semanage fcontext -l 
+ $ semanage fcontext -l | grep httpd 
+
+# moving files from one location to another do not change the context 
+
+# to restore the context 
+
+ $ restorecon index.html (file name)
+ $ ls -Z 
+
+# To relabel everything during reboot, create .autorelabel file on root directory. 
+# if this file exist, everything will be relabeled when reboot occur. 
+
+  $ cd /
+  $ touch .autorelabel 
+
+ 
+
+  $ semanage fcontext -a -t httpd_sys_content_t '/content(/.*)?'
+  $ restorecon -Rv /content #R for recursive and v for verbose
+
+# To delete a context 
+ # first find the content context  
+ $ semanage fcontext -l | grep /content (directory name)
+ $ semanage fcontext -d '/content(/.*)?'
+ $ restorecon -Rv /content 
+
+ 
+
+

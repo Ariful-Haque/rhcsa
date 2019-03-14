@@ -1,0 +1,3 @@
+
+$ sudo yum install setroubleshoot-server
+$ sealert -a /var/log/audit/audit.log 

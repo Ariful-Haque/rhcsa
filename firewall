@@ -1,0 +1,40 @@
+
+# netfilter module communicate with kernel
+
+$ yum install firewalld firewall-config
+
+# start and enable firewalld
+
+# there are two different modes, runtime and permanent 
+# runtime change is not persistent
+
+ $ firewall-cmd --get-zones
+ $ firewall-cmd --get-default-zone
+ $ firewall-cmd --list-all (it will show the rules of default zone) 
+
+
+  $ firewall-cmd --zone=home --list-all
+
+# add a source address
+
+ $ firewall-cmd --zone=home --add-source=192.168.0.0/16
+
+# To make it persistent 
+
+ $ firewall-cmd --zone=home --permanent --add-source=192.168.0.0/16
+
+# Permanent rule dose not apply untill you reload the deamon
+ $firewall-cmd --reload
+
+# Allowing a port 
+
+ $firewall-cmd --zone=public --permanent --add-port=80/tcp
+
+# One way of doing it without reloading the service, is to do it both ways. Non-persistent and persistent. 
+
+# panic mode 
+
+ $ firewall-cmd --panic-on 
+ $ firewall-cmd --query-panic
+
+

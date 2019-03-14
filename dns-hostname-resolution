@@ -1,0 +1,22 @@
+
+# /etc/resolv.conf file contains the ip address of name server
+# to look for hostnames 
+
+# /etc/hosts file can be used to poison dns
+
+# where to look fisrt? in /etc/hosts file or external name server?
+# This is decided by the configuration in /etc/nsswitch.conf file.  
+
+# Internal hostname can be edited with this tool 
+
+ $ hostnamectl set-hostname mydomain.com
+ $ exec bash (will update bash) 
+
+ $ hostnamectl status 
+
+# To check what ip address will be returned from a dns look up
+
+ $ getent hosts yle.fi
+ $ getent hosts linuxacademy.com
+
+

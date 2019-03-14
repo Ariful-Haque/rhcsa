@@ -1,0 +1,15 @@
+
+# To know the curret mode 
+ $ getenforce 
+
+# To enable permissive mode 
+ $ setenforce 0 
+ $ setenorce 1 (set it to enforcing mode) 
+
+# for persistent cofiguration edit this file 
+  /etc/selinux/config
+
+# To disable selinux edit this file and set SELINUX=disabled
+# and then reboot the system in order it to effect. 
+
+

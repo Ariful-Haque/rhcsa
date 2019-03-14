@@ -1,0 +1,17 @@
+
+ # ntp uses cronyd deamon to sync time 
+
+ $ timedatectl 
+
+# To disable ntp 
+ $ timedatectl set-ntp false 
+
+# to see all the available time zones 
+ $ timedatectl list-timezones 
+
+# To find your time zone 
+
+  $ tzselect 
+  $ timedatectl set-timezone Helsinki/europe (your time zone)
+  $ timedatectl set-time 12:30:10
+  

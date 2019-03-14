@@ -1,0 +1,19 @@
+
+ # key based authentication public key private key
+
+  $ ssh-keygen 
+
+  $ ssh-copy-id user@remoteHostIpAddress 
+
+# I can now issue commands on the remote server from my local host 
+
+  $ ssh user@50.54.32.15 ls /etc 
+
+# I still need to enter my passphrase 
+# But I can escape it with a new bash session, which will save inside bash 
+# our current loged in session
+
+   $ ssh-agent bash 
+   $ ssh-add 
+
+# Permission for private key is 600 and permission for public key is 644 
