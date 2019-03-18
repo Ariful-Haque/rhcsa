@@ -1,0 +1,37 @@
+
+
+$ cat /etc/groups
+    or
+$ getent group
+
+$ getent group anthony  (it will return all the groups anthony belongs to)
+         or
+$ groups anthony
+
+# To check who belong to a particular group--
+ $ getent group finance(group-name)
+
+# create a new group
+$ groupadd finance
+
+# To change the primary group of user
+$ usermod -g (group-name) (username)
+
+# To add more than one supplimentary group to a user.
+
+  $ usermod -aG finance jhon
+  $ groups jhon
+
+# to switch primary group
+ $ newgrp accounting -
+
+# to change a group name -
+
+$ groupmod -n (new-group-name) (old-group-name)
+
+# To delete a group
+
+$ groupdel finance
+
+
+
