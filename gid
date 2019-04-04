@@ -1,0 +1,8 @@
+
+# files created inside that directory will inherit the
+# group ownership of the parent directory.
+
+ # to add setgid bit
+ $ chmod g+s directory-name
+
+

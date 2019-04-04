@@ -1,0 +1,74 @@
+
+# create and extend logical volume
+
+# at first, attach the disks
+
+$ cd /dev
+$ ls /dev
+
+# create a partition for both disks
+
+$ gdisk xvdf
+
+# linux LVM Hexa cod 8e00
+
+# do same with xvdg
+
+# Now initialize the disks
+
+$ pvcreate /dev/xvdf1 /dev/xvdg1
+$ pvdisplay
+
+# Create a volume group
+
+$ vgcreate battlestar /dev/xvdf1 /dev/xvdg1
+$ vgdisplay
+
+# Create a logical volume
+
+$ lvcreate -n galactica -L 20G battlestar
+$ lvdisplay
+
+# You can view your finished device in the `/dev` directory. Here you should
+find a directory called *battlestar*:
+
+# Now mount the logical volume
+# create a filesystem
+$ mkfs -t xfs /dev/battlestar/galactica
+$ mkdir /mnt/mydir
+$ mount /dev/battlestar/galactica /mnt/mydir
+
+# now check your mounted device
+$ df -h
+
+# for persistent change you can add it /etc/fstab
+
+# Extending logical volume and volume groups
+
+# make a new partition of the device that you want to add to volume group
+
+$ gdisk /dev/xvdj
+# run partprobe to register the new partition with the kernel
+
+$ pvcreate /dev/xvdj1
+
+$ vgextend battlestar /dev/xvdj1
+$ vgdisplay
+
+$ lvextend -L +20G /dev/battlestar/galactica
+$ lvdisplay
+
+Use lvdisplay to confirm the size changes. However,
+if you run df -h you see that the operating system
+still only recognizes 20G of that. We need to
+use XFS’s grow file system command to extend this:
+
+$ xfs_growfs /mnt/mydir
+
+
+
+
+
+
+
+

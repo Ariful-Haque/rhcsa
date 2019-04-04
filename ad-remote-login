@@ -1,0 +1,22 @@
+
+$ yum install -y realmd
+$ yum update -y
+
+$ realm discover (ad-domain-name)
+
+# install the required packages
+
+$ realm join ad.linuxacademy.com
+
+ $ vim /etc/ssh/sshd_config
+ # uncomment kerberos aut options with yes
+
+$ systemctl restart sshd
+
+# now login from the remote machine
+
+$ ssh -l test@ad.linuxacademy.com (ip address)
+
+
+
+

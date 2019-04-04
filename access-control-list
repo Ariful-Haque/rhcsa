@@ -2,5 +2,56 @@
 # Access Control List
 
 - not all file system support acl
-- in a redhat machine by default ext4 and xfs FS support ACL 
-- 
+- in a redhat machine by default ext4 and xfs FS support ACL
+-
+
+# when user do not need to be the owner of a file or to be part of
+# a group that has access to the file.
+#
+#  acl can be set for user or for the group
+#
+$ getfacl file1.txt
+
+# to set acl for a user named starbuck
+
+$ setfacl -m u:starbuck:rw file1.txt
+ # one thing to note, acl is assigned to the userid. So if userid is changed
+ # acl will no longer be there.
+ #
+ #  mask is maximum level permission.
+ # chmod changes the mask
+ Example:
+ -------
+ $ setfacl -m u:starbuck:rw file1.txt
+ $ getfacl file1.txt
+ $ chmod 000 file1.txt
+ $ getfacl file1.txt (you can see mask is changed.)
+ $ setfacl -m m::r file1.txt (set mask read to file1.txt)
+
+# to remove read mask
+$ setfacl -m m::- file1.txt
+
+# set acl for a group
+$ setfacl -m g:finance:rw file1
+
+
+# set default acl on a directory
+#
+$ setfacl -d -m u:starbuck:rw dir1
+#
+# To remove default acl
+$ setfacl --remove-default dir1
+
+# To remove all the acl for a user
+$ setfacl -x u:starbuck dir1
+# To include default acl
+$ setfacl -x d:u:starbuck dir1
+
+# copy acl from file1 to file2
+$ getfacl file1 | setfacl --set-file=- file2
+
+
+
+
+
+
